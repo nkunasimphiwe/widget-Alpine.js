@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="greet.js"></script>
+    <script src="enoughAirTime.js"></script>
+    <script src="enoughAirTime-widget.js"></script>
+    <script src="wordgame.js"></script>
+    <script src="wordgame-widget.js"></script>
+     <script src="greet-widget.js"></script>
+    <script src="//unpkg.com/alpinejs" defer></script>
+    
+    <script>
+        //console.log(greet("simphiwe"))
+        //console.log(greet("Mandla"))
+        //console.log(greet("Themba"))
+    </script>
+    <style>
+        .message {
+            padding: 1em;
+            background-color: aqua;
+            margin-bottom: 1em
+            
+            
+        }
+        .messag {
+            padding: 1em;
+            background-color: rgb(255, 187, 0);
+            margin-bottom: 1em;
+            margin-right: 30em
+
+        }
+        .input > label {
+            
+            display: inline-block;
+            width: 15em;
+            padding: 5px;
+            font-weight:bold;
+        }
+        .input  input[type="text"] {
+            padding: 0.5em;
+            margin: 0.5em;
+        }
+
+.widget {
+    display: flex;
+    justify-content: space-around;
+    border: 1px solid;
+}
+.air {
+    padding-left: 5em;
+    background-color: coral;
+    border: 1px dotted ;
+}
+.wordgame {
+    
+    background-color: rgb(175, 197, 48);
+    border: dotted 2px;
+    margin-top: 1em;
+    margin-right: 42em;
+    font-weight: bold;
+}
+    </style>
+
+</head>
+
+<body>
+    <div class="widget">
+
+<div class="greet" x-data="greetWidget">
+             <H2>Greet Widget</H2>
+        <div x-show="message.length > 0" class="message" x-text="message">
+            You will be greeted here
+        </div>
+
+        <label for="name">Please enter your name</label>
+        <input type="text" x-model="name" id="name">
+        <button x-on:click="greetMe">Greet</button>
+    </div>
+
+    <div class="air" x-data="enoughairtimewidget">
+
+        <h2>Enough airtime</h2>
+        <div class="input">
+           <label for="usage">Please enter your airtime usage</label>  
+           <input type="text" x-model="airtimeUsage"  id="usage">
+        </div>
+        <div class="input">
+           <label for="amount">Amount available</label>  
+           <input type="text" x-model="availableBalance" id="amount">
+        </div>
+
+        <div class="message" x-model="availableBalance" x-text="airtimeMessage">
+           
+        </div>
+        <div>
+            <button x-on:click="calculate">Calculate airtime usage</button>
+        </div>
+    </div>
+
+    </div>
+
+    <div class="wordgame" x-data="wordgameWidget">
+        <H2>Word Game</H2>
+        <div class="inputs">
+            <Label for="sentence">Please enter your sentence to find the longest word</Label>
+            <input type="text" id="sentence"x-model="yourLogestWord">
+            <button x-on:click="showLogestWord" >Logest-word</button>
+       <div class="messag" x-text="yourSentence" x-model="yourLogestWord" >
+
+         </div>
+        </div>
+
+        <div class="inputs">
+            <Label for="sentenc">Please enter your sentence to find the shortest word</Label>
+            <input type="text" id="sentenc"x-model="yourShortestWord">
+            <button x-on:click="shortestWord" >Shortest-word</button>
+       <div class="messag" x-text="yourSentenc" x-model="yourShortestWord" >
+
+         </div>
+        </div>
+        
+        <div class="inputs">
+            <Label for="sentenc">Please enter your sentence to find the shortest word</Label>
+            <input type="text" id="sentenc"x-model="yourShortestWord">
+            <button x-on:click="shortestWord" >Shortest-word</button>
+       <div class="messag" x-text="yourSentenc" x-model="yourShortestWord" >
+
+         </div>
+        </div>
+
+        <div class="inputs">
+            <Label for="senten">Please enter your sentence to find the shortest word</Label>
+            <input type="text" id="senten"x-model="yourWordLenght">
+            <button x-on:click="wordLenght" >Shortest-word</button>
+       <div class="messag" x-text="yourSenten" x-model="yourWordLenght" >
+
+         </div>
+        </div>
+        
+    </div>
+
+
+</body>
+
+</html>
