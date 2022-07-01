@@ -1,11 +1,29 @@
 document.addEventListener('alpine:init', () => {
-    Alpine.data ('enoughairtimewidget', function() {
+    Alpine.data ('wordgameWidget', function() {
      return   { 
-        airtimeUsage : '',
-        availableBalance : 0.00,
-        airtimeMessage : '',
-        calculate(){
-            this.airtimeMessage = enoughAirtime(this.airtimeUsage, this.available);
+        yourSentence : '',
+        yourSentenc : '',
+        yourSenten : '',
+        yourLogestWord : '',
+        yourShortestWord : '',
+        yourWordLenght : '',
+        showLogestWord(){
+            this.yourSentence = longestWord(this.yourLogestWord);
+            setTimeout(() => {
+                this.yourSentence = '';
+            }, 3000);
+        },
+        shortestWord(){
+            this.yourSentenc = shortestWord(this.yourShortestWord);
+            setTimeout(() => {
+                this.yourSentenc = '';
+            }, 3000);
+        },
+        wordLenght(){
+            this.yourSenten=wordLengths(this.yourWordLenght)
+            setTimeout(() => {
+                this.yourSenten = '';
+            }, 3000);
         }
     }
     

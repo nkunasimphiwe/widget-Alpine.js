@@ -10,10 +10,12 @@
     <script src="enoughAirTime.js"></script>
     <script src="enoughAirTime-widget.js"></script>
     <script src="wordgame.js"></script>
+    <script src="phonBillis.js"></script>
+    <script src="phonebill-widgets.js"></script>
     <script src="wordgame-widget.js"></script>
-     <script src="greet-widget.js"></script>
+    <script src="greet-widget.js"></script>
     <script src="//unpkg.com/alpinejs" defer></script>
-    
+
     <script>
         //console.log(greet("simphiwe"))
         //console.log(greet("Mandla"))
@@ -22,126 +24,193 @@
     <style>
         .message {
             padding: 1em;
-            background-color: aqua;
+            background-color: rgb(0, 255, 136);
             margin-bottom: 1em
-            
-            
         }
+
         .messag {
             padding: 1em;
             background-color: rgb(255, 187, 0);
             margin-bottom: 1em;
             margin-right: 30em
-
         }
-        .input > label {
-            
+        .messa {
+            padding: 1em;
+            background-color: rgb(135, 190, 138);
+            margin-bottom: 1em;
+            margin-right: 3em
+        }
+        .input>label {
+
             display: inline-block;
             width: 15em;
             padding: 5px;
-            font-weight:bold;
+            font-weight: bold;
         }
-        .input  input[type="text"] {
+
+        .input input[type="text"] {
             padding: 0.5em;
             margin: 0.5em;
         }
 
-.widget {
-    display: flex;
-    justify-content: space-around;
-    border: 1px solid;
-}
-.air {
-    padding-left: 5em;
-    background-color: coral;
-    border: 1px dotted ;
-}
-.wordgame {
-    
-    background-color: rgb(175, 197, 48);
-    border: dotted 2px;
-    margin-top: 1em;
-    margin-right: 42em;
-    font-weight: bold;
-}
+        .widget {
+            display: flex;
+            justify-content: space-around;
+            border: dotted 1px;
+            padding-bottom: 2em;
+
+        }
+        .lawd {
+            display: flex;
+            justify-content: space-around;
+            border: 1px dotted;
+        }
+
+        .air {
+            padding-left: 2em;
+            background-color: rgb(14, 163, 64);
+            border: 1px dotted;
+            margin-top: 2em;
+            margin-bottom: 2em;
+            padding-right: 2em;
+        }
+        .greet {
+            margin-top: 2em;
+            background-color:rgb(214, 14, 0);
+            padding-left: 3em;
+            padding-right: 3em;
+        }
+        .totalBill{
+            margin-top: 2em;
+            padding-left: 3em;
+            border-left: 2em;
+            padding-right: 3em;
+            background-color: rgb(140, 155, 6);
+            padding-bottom: 15px;
+        }
+ 
+        .wordgame {
+
+            background-color: rgb(48, 150, 197);
+            border-left: 2em;
+            margin-top: 2em;
+            font-weight: bold;
+            padding-right: 1em;
+            padding-left: 1em;
+            margin-bottom: 2em;
+        }
+        .heading {
+            padding-left: 20em;
+            background-color: rgb(163, 42, 157);
+            border: 1px dotted;
+            margin-bottom: 2em;
+            color: gold;
+           
+        }
+        .inputs2, .inputs1, .inputs3{
+            padding-bottom: 2em;
+        }
+        
     </style>
 
 </head>
 
 <body>
+
+ <div class="heading">
+    <h1>The best widget (alpinejs fuction) you can get...! </h1>
+ </div>
+   
     <div class="widget">
 
-<div class="greet" x-data="greetWidget">
-             <H2>Greet Widget</H2>
-        <div x-show="message.length > 0" class="message" x-text="message">
-            You will be greeted here
+        <div class="greet" x-data="greetWidget">
+            <H2>Greet Widget</H2>
+            <div x-show="message.length > 0" class="messa" x-text="message">
+                You will be greeted here
+            </div>
+
+            <label for="name">Please enter your name</label>
+            <input type="text" x-model="name" id="name">
+            <button x-on:click="greetMe">Greet</button>
         </div>
 
-        <label for="name">Please enter your name</label>
-        <input type="text" x-model="name" id="name">
-        <button x-on:click="greetMe">Greet</button>
-    </div>
+        <div class="totalBill" x-data="phonebillwidget">
+            <h2>Total phone bill</h2>
+            <div   class="messa" x-text="yoursent" x-model="yourphoneBill" x-show="yoursent.length > 0">
 
-    <div class="air" x-data="enoughairtimewidget">
+            </div>
+            <div class="new">
+                <Label for="bill">Please phone bill usage</Label>
+                <input type="text" id="bill" x-model="yourphoneBill">
+                <button x-on:click="phonebill">Phone-bill</button>
+            </div>
 
-        <h2>Enough airtime</h2>
-        <div class="input">
-           <label for="usage">Please enter your airtime usage</label>  
-           <input type="text" x-model="airtimeUsage"  id="usage">
-        </div>
-        <div class="input">
-           <label for="amount">Amount available</label>  
-           <input type="text" x-model="availableBalance" id="amount">
-        </div>
+            
 
-        <div class="message" x-model="availableBalance" x-text="airtimeMessage">
-           
         </div>
-        <div>
-            <button x-on:click="calculate">Calculate airtime usage</button>
-        </div>
-    </div>
 
     </div>
+     
+    <div class="lawd">
+        <div class="wordgame" x-data="wordgameWidget">
+            <H2>Word Game</H2>
+            <div class="inputs1">
+                <Label for="sentence">Please enter your sentence to find the longest word</Label>
+                <input type="text" id="sentence" x-model="yourLogestWord">
+                <button  x-on:click="showLogestWord">Logest-word</button>
+                <div     class="messag" x-text="yourSentence" x-model="yourLogestWord" x-show="yourSentence.length > 0">
 
-    <div class="wordgame" x-data="wordgameWidget">
-        <H2>Word Game</H2>
-        <div class="inputs">
-            <Label for="sentence">Please enter your sentence to find the longest word</Label>
-            <input type="text" id="sentence"x-model="yourLogestWord">
-            <button x-on:click="showLogestWord" >Logest-word</button>
-       <div class="messag" x-text="yourSentence" x-model="yourLogestWord" >
+                </div>
+            </div>
 
-         </div>
-        </div>
+            <!-- <div class="inputs">
+                <Label for="sentenc">Please enter your sentence to find the shortest word</Label>
+                <input type="text" id="sentenc" x-model="yourShortestWord">
+                <button x-on:click="shortestWord">Shortest-word</button>
+                <div class="messag" x-text="yourSentenc" x-model="yourShortestWord">
 
-        <div class="inputs">
-            <Label for="sentenc">Please enter your sentence to find the shortest word</Label>
-            <input type="text" id="sentenc"x-model="yourShortestWord">
-            <button x-on:click="shortestWord" >Shortest-word</button>
-       <div class="messag" x-text="yourSentenc" x-model="yourShortestWord" >
+                </div>
+            </div> -->
 
-         </div>
+            <div class="inputs2">
+                <Label for="sentenc">Please enter your sentence to find the shortest word</Label>
+                <input type="text" id="sentenc" x-model="yourShortestWord">
+                <button x-on:click="shortestWord">Shortest-word</button>
+                <div class="messag" x-text="yourSentenc" x-model="yourShortestWord" x-show="yourSentenc.length > 0">
+
+                </div>
+            </div>
+
+            <div class="inputs3">
+                <Label for="senten">Please enter your sentence to find the shortest word</Label>
+                <input type="text" id="senten" x-model="yourWordLenght">
+                <button x-on:click="wordLenght">Word-length</button>
+                <div class="messag" x-text="yourSenten" x-model="yourWordLenght" x-show="yourSenten">
+
+                </div>
+            </div>
+
         </div>
         
-        <div class="inputs">
-            <Label for="sentenc">Please enter your sentence to find the shortest word</Label>
-            <input type="text" id="sentenc"x-model="yourShortestWord">
-            <button x-on:click="shortestWord" >Shortest-word</button>
-       <div class="messag" x-text="yourSentenc" x-model="yourShortestWord" >
+        <div class="air" x-data="enoughairtimewidget">
 
-         </div>
+            <h2>Enough airtime</h2>
+            <div class="input">
+                <label for="usage">Please enter your airtime usage</label>
+                <input type="text" x-model="airtimeUsage" id="usage">
+            </div>
+            <div class="input">
+                <label for="amount">Amount available</label>
+                <input type="text" x-model="availableBalance" id="amount">
+            </div>
+
+            <div class="message" x-model="availableBalance" x-text="airtimeMessage" x-show="airtimeMessage ">
+
+            </div>
+            <div>
+                <button x-on:click="calculate">Calculate airtime usage</button>
+            </div>
         </div>
-
-        <div class="inputs">
-            <Label for="senten">Please enter your sentence to find the shortest word</Label>
-            <input type="text" id="senten"x-model="yourWordLenght">
-            <button x-on:click="wordLenght" >Shortest-word</button>
-       <div class="messag" x-text="yourSenten" x-model="yourWordLenght" >
-
-         </div>
-        </div>
-        
     </div>
 
 
