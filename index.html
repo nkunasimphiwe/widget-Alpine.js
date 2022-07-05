@@ -130,7 +130,7 @@
             </div>
 
             <label for="name">Please enter your name</label>
-            <input type="text" x-model="name" id="name">
+            <input type="text" x-model="name" id="name" placeholder="e.g. Simphiwe">
             <button x-on:click="greetMe">Greet</button>
         </div>
 
@@ -141,7 +141,7 @@
             </div>
             <div class="new">
                 <Label for="bill">Please phone bill usage</Label>
-                <input type="text" id="bill" x-model="yourphoneBill">
+                <input type="text" id="bill" x-model="yourphoneBill" placeholder="e.g. call, call, sms ....">
                 <button x-on:click="phonebill">Phone-bill</button>
             </div>
 
@@ -156,7 +156,7 @@
             <H2>Word Game</H2>
             <div class="inputs1">
                 <Label for="sentence">Please enter your sentence to find the longest word</Label>
-                <input type="text" id="sentence" x-model="yourLogestWord">
+                <input type="text" id="sentence" x-model="yourLogestWord" placeholder="e.g. A championship man">
                 <button  x-on:click="showLogestWord">Logest-word</button>
                 <div     class="messag" x-text="yourSentence" x-model="yourLogestWord" x-show="yourSentence.length > 0">
 
@@ -174,7 +174,7 @@
 
             <div class="inputs2">
                 <Label for="sentenc">Please enter your sentence to find the shortest word</Label>
-                <input type="text" id="sentenc" x-model="yourShortestWord">
+                <input type="text" id="sentenc" x-model="yourShortestWord" placeholder="e.g. My hometown village">
                 <button x-on:click="shortestWord">Shortest-word</button>
                 <div class="messag" x-text="yourSentenc" x-model="yourShortestWord" x-show="yourSentenc.length > 0">
 
@@ -183,7 +183,7 @@
 
             <div class="inputs3">
                 <Label for="senten">Please enter your sentence to find the shortest word</Label>
-                <input type="text" id="senten" x-model="yourWordLenght">
+                <input type="text" id="senten" x-model="yourWordLenght" placeholder="e.g. The game of football">
                 <button x-on:click="wordLenght">Word-length</button>
                 <div class="messag" x-text="yourSenten" x-model="yourWordLenght" x-show="yourSenten">
 
@@ -197,11 +197,11 @@
             <h2>Enough airtime</h2>
             <div class="input">
                 <label for="usage">Please enter your airtime usage</label>
-                <input type="text" x-model="airtimeUsage" id="usage">
+                <input type="text" x-model="airtimeUsage" id="usage"  placeholder="e.g. call,call,sms,sms,data ...">
             </div>
             <div class="input">
                 <label for="amount">Amount available</label>
-                <input type="text" x-model="availableBalance" id="amount">
+                <input type="text" x-model="availableBalance" id="amount" placeholder="e.g. 50">
             </div>
 
             <div class="message" x-model="availableBalance" x-text="airtimeMessage" x-show="airtimeMessage ">
