@@ -10,8 +10,8 @@
     <script src="enoughAirTime.js"></script>
     <script src="enoughAirTime-widget.js"></script>
     <script src="wordgame.js"></script>
-    <script src="phonBillis.js"></script>
-    <script src="phonebill-widgets.js"></script>
+    <script src="familybill.js"></script>
+    <script src="familybill-widgets.js"></script>
     <script src="wordgame-widget.js"></script>
     <script src="greet-widget.js"></script>
     <script src="//unpkg.com/alpinejs" defer></script>
@@ -110,6 +110,15 @@
         .inputs2, .inputs1, .inputs3{
             padding-bottom: 2em;
         }
+        .words {
+            font-size: medium;
+           font-style: italic;
+           padding-bottom: 3px;
+           background-color: rgb(135, 190, 138);
+           margin-bottom: 0.5em;
+           
+
+        }
         
     </style>
 
@@ -135,13 +144,17 @@
         </div>
 
         <div class="totalBill" x-data="phonebillwidget">
-            <h2>Total phone bill</h2>
+            <h2>Total family bills</h2>
             <div   class="messa" x-text="yoursent" x-model="yourphoneBill" x-show="yoursent.length > 0">
 
             </div>
             <div class="new">
+                <div class="words">
+                    Type "rent" for your montly bond payment,<br> Type "elect" for montly electricity payment, 
+                   <br> Type "car" for the montly installment of your car <br> Type "extras" for extra services such as food, water, sanitations, etc. 
+                </div>
                 <Label for="bill">Please phone bill usage</Label>
-                <input type="text" id="bill" x-model="yourphoneBill" placeholder="e.g. call, call, sms ....">
+                <input type="text" id="bill" x-model="yourphoneBill" placeholder="e.g. rent, car, elect, extras ....">
                 <button x-on:click="phonebill">Phone-bill</button>
             </div>
 
